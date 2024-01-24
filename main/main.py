@@ -1,12 +1,14 @@
 from settings import *
 from sys import exit
 
+import sqlite3
 #components
 from game import Game
 from score import Score
 from preview import Preview
 
 from random import choice
+
 
 class Main: 
     def __init__(self):
