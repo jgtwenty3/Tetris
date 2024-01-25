@@ -26,6 +26,18 @@ class Main:
         self.game = Game(self.get_next_shape, self.update_score)
         self.score = Score()
         self.preview = Preview()
+
+        #db
+        self.conn = sqlite3.connect('playerscores.db')
+        self.cursor = self.conn.cursor()
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS scores (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                player_name TEXT,
+                score INTEGER,
+                message TEXT
+            )
+        ''')
     
     def update_score(self, lines, score, level):
         self.score.lines = lines

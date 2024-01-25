@@ -52,12 +52,16 @@ class Game:
 		if self.current_lines/10 > self.current_level:
 			self.current_level +=1
 		self.update_score(self.current_lines,self.current_score,self.current_level)
+
 	def check_game_over(self):
 		for block in self.tetromino.blocks:
-			if block.pos.y < 0 : 
+			print(block.pos.y)
+			if block.pos.y < 0:
+				pygame.quit()
 				exit()
+
 	def create_new_tetromino(self):
-		self.check_game_over
+		self.check_game_over()
 
 		self.check_finished_rows()
 		self.tetromino = Tetromino(
@@ -242,9 +246,10 @@ class Block(pygame.sprite.Sprite):
 			return True
 
 	def vertical_collide(self, y, field_data):
+		print(y)
 		if y >= ROWS:
 			return True
-
+		
 		if y >= 0 and field_data[y][int(self.pos.x)]:
 			return True
 
