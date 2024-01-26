@@ -1,6 +1,6 @@
 This is a python application that emulates a Tetris game. It is connected to a db using SQL. 
 
-The game is made of: 
+The game is made of
 
 main.py: 
   -initializes pygame, sets general display, connects to db, 
